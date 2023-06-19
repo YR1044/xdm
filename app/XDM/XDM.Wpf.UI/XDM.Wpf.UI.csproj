@@ -2,7 +2,9 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFrameworks>net4.7.2;net3.5</TargetFrameworks>
+    <!--<TargetFrameworks>net4.6;net4.5</TargetFrameworks>-->
+    <TargetFramework>net4.7.2</TargetFramework>
+    <!--<TargetFramework>net3.5</TargetFramework>-->
     <UseWPF>true</UseWPF>
     <UseWindowsForms>true</UseWindowsForms>
     <Platforms>x86</Platforms>
@@ -15,36 +17,15 @@
     <Description>Xtreme Download Manager</Description>
     <AssemblyTitle>Xtreme Download Manager</AssemblyTitle>
     <AssemblyVersion>8.0.1</AssemblyVersion>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <DefineConstants>TRACE;WINDOWS</DefineConstants>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net4.7.2|x86'">
-    <Optimize>true</Optimize>
-  </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net4.7.2|x64'">
-    <Optimize>true</Optimize>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net4.7.2|x86'">
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
     <DebugType>none</DebugType>
     <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net4.7.2|x64'">
-    <DebugType>none</DebugType>
-    <DebugSymbols>false</DebugSymbols>
-  </PropertyGroup>
-
-  <!--<ItemGroup>
-    <ProjectReference Include="..\BrowserMonitor\BrowserMonitor.csproj" />
-    <ProjectReference Include="..\NativeMessagingHost\NativeMessagingHost.csproj" />
-    <ProjectReference Include="..\Translations\Translations.csproj" />
-    <ProjectReference Include="..\XDM.Core.UI\XDM.Core.UI.csproj" />
-    <ProjectReference Include="..\XDM.Core\XDM.Core.csproj" />
-    <ProjectReference Include="..\XDM_CoreFx\XDM.Core.csproj" />
-    <ProjectReference Include="..\YoutubeDLHandler\YDLWrapper.csproj" />
-    <ProjectReference Include="..\TraceLog\TraceLog.csproj" />
-  </ItemGroup>-->
 
   <ItemGroup>
     <Reference Include="PresentationFramework.Aero2" />
@@ -55,28 +36,62 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="..\chrome-extension\**" CopyToOutputDirectory="Always" LinkBase="chrome-extension\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\XDM.Win.Installer\binary-deps\**" CopyToOutputDirectory="Always" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="MainWindow\Resources\" />
   </ItemGroup>
 
-  <!--<ItemGroup>
-    <LangFiles Include="$(SolutionDir)\Lang\**" />
-  </ItemGroup>-->
-
   <ItemGroup>
+    <None Update="images\Brave.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="images\chrome-addressbar.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="images\Chrome.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="images\extension-folder.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="images\load_unpacked.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="images\MSEdge.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="images\Opera.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="images\pin-ext.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="images\Vivaldi.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="xdm-logo.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
-  <!--<Target Name="Copy" AfterTargets="Build">
-    <Copy SourceFiles="@(LangFiles)" DestinationFolder="$(OutDir)\Lang" />
-  </Target>-->
-
   <ItemGroup>
-    <PackageReference Include="Microsoft.Windows.Compatibility" Version="5.0.2" />
+    <!--<PackageReference Include="Microsoft.Windows.Compatibility" Version="5.0.2" />-->
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="System.Data.SQLite.Core" Version="1.0.116" />
   </ItemGroup>
+
+  <PropertyGroup>
+    <ContentSQLiteInteropFiles>true</ContentSQLiteInteropFiles>
+    <CopySQLiteInteropFiles>false</CopySQLiteInteropFiles>
+    <CleanSQLiteInteropFiles>false</CleanSQLiteInteropFiles>
+    <CollectSQLiteInteropFiles>false</CollectSQLiteInteropFiles>
+  </PropertyGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' != 'net3.5' ">
     <PackageReference Include="System.Buffers" Version="4.5.1" />
@@ -96,14 +111,12 @@
     <PackageReference Include="System.IO.Compression" Version="4.3.0" />
   </ItemGroup>
 
-  <!--<ItemGroup>
-    <ProjectReference Include="..\NativeMessagingHost\NativeMessagingHost.csproj" />
-  </ItemGroup>-->
-
   <Import Project="..\XDM.Core\XDM.Core.projitems" Label="Shared" />
 
   <Import Project="..\XDM.Messaging\XDM.Messaging.projitems" Label="Shared" />
 
   <Import Project="..\XDM.Compatibility\XDM.Compatibility.projitems" Label="Shared" />
+
+  <!--<Import Project="..\NativeMessaging\NativeMessaging.projitems" Label="Shared" />-->
 
 </Project>

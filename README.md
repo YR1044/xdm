@@ -10,6 +10,8 @@
 
 ### [XDM Homepage](https://xtremedownloadmanager.com/ "XDM Homepage") ###
 
+[New Experimental Beta version is out](https://github.com/subhra74/xdm-experimental-binaries/tags)
+
 [News about new version](https://github.com/subhra74/xdm/discussions/768)
 
 **X**treme **D**ownload **M**anager (XDM) is a powerful tool to increase download speeds up to 500%, save videos from popular video streaming websites, resume broken/dead downloads, schedule and convert downloads.<br>
@@ -21,8 +23,8 @@ XDM seamlessly integrates with Google Chrome, Mozilla Firefox Quantum, Opera, Vi
 
 | ![xdm_1][01] | ![xdm_5][05] | ![xdm_3][03] |
 | --- | --- | --- |
-| ![xdm_7][07] | ![xdm_8][08] | ![xdm_9][09] |
-| ![xdm_4][04] | ![xdm_2][02] | ![xdm_6][06] |
+| ![xdm_7][07] | ![xdm_6][06] | ![xdm_9][09] |
+| ![xdm_4][04] | ![xdm_2][02] |  |
 
 
 ## Features

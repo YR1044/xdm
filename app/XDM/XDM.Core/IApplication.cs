@@ -48,7 +48,8 @@ namespace XDM.Core
         /// <param name="startType"></param>
         /// <param name="authentication"></param>
         /// <param name="proxyInfo"></param>
-        public void AddItemToTop(string id, string targetFileName, DateTime date,
+        public void AddItemToTop(string id, string targetFileName,
+            string? targetDir, DateTime date,
             long fileSize, string type, FileNameFetchMode fileNameFetchMode,
             string primaryUrl, DownloadStartType startType,
             AuthenticationInfo? authentication, ProxyInfo? proxyInfo);
@@ -184,9 +185,7 @@ namespace XDM.Core
         //public void LoadDownloadsDB();
         public void ShowUpdateAvailableNotification();
 
-        public void InstallLatestFFmpeg();
-
-        public void InstallLatestYoutubeDL();
+        public void InstallLatestYtDlp();
 
         // public void MoveToQueue(string[] selectedIds, bool prompt = false, Action? callback = null);
 

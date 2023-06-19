@@ -37,6 +37,7 @@ using XDM.Wpf.UI.Dialogs.Updater;
 using XDM.Wpf.UI.Dialogs.VideoDownloader;
 using XDM.Wpf.UI.Dialogs.Widget;
 using XDM.Wpf.UI.Win32;
+using XDM.Wpf.UI.Dialogs.MediaCapture;
 
 namespace XDM.Wpf.UI
 {
@@ -691,6 +692,16 @@ namespace XDM.Wpf.UI
             this.YoutubeDLDownloadClicked?.Invoke(sender, e);
         }
 
+        private void menuMediaGrabber_Click(object sender, RoutedEventArgs e)
+        {
+            ApplicationContext.PlatformUIService.CreateAndShowMediaGrabber();
+        }
+
+        //private void extRegister_Click(object sender, RoutedEventArgs e)
+        //{
+        //    ApplicationContext.PlatformUIService.ShowExtensionRegistrationWindow();
+        //}
+
         private void MenuBatchDownload_Click(object sender, RoutedEventArgs e)
         {
             this.BatchDownloadClicked?.Invoke(sender, e);
@@ -707,5 +718,15 @@ namespace XDM.Wpf.UI
         }
 
         public IPlatformClipboardMonitor GetClipboardMonitor() => this.clipboarMonitor;
+
+        public void ShowAndActivate()
+        {
+            this.Show();
+            if (this.WindowState == WindowState.Minimized)
+            {
+                this.WindowState = WindowState.Normal;
+            }
+            this.Activate();
+        }
     }
 }

@@ -13,6 +13,7 @@ namespace XDM.Core
     public interface IApplicationCore
     {
         public Version AppVerion { get; }
+        public string AppPlatform { get; }
 
         public void AddDownload(Message message);
 
@@ -45,7 +46,7 @@ namespace XDM.Core
 
         public string? GetPrimaryUrl(DownloadItemBase entry);
 
-        public void RemoveDownload(DownloadItemBase entry, bool deleteDownloadedFile);
+        public void RemoveDownload(DownloadItemBase entry, bool deleteDownloadedFile, bool removeInfo = true);
 
         public void ShowProgressWindow(string downloadId);
 
